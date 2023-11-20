@@ -7,9 +7,12 @@ public class TestThread {
   public static void main(String[] args) {
 
     // Create threads
-    HelloThread t1 = new HelloThread();
-    GoodByeThread t2 = new GoodByeThread();
-  
+//    HelloThread t1 = new HelloThread();
+//    GoodByeThread t2 = new GoodByeThread();
+//
+
+    PrintMessageThread t1 = new PrintMessageThread("Hello World", 1000);
+    PrintMessageThread t2 = new PrintMessageThread("GoodBye World", 500);
     // Start threads
     t1.start();
     t2.start();
@@ -47,3 +50,22 @@ class GoodByeThread extends Thread {
   }//end run
 
 }//end class GoodByeThread
+
+
+class PrintMessageThread extends Thread {
+
+  String MESSAGE = "";
+  int COUNT = 0;
+
+  public PrintMessageThread(String message, int count) {
+    this.MESSAGE = message;
+    this.COUNT = count;
+  }
+
+  //tell the system what the thread will do in run()
+  public void run() {
+    for (int i=1; i <= COUNT; i++)
+      System.out.println(MESSAGE + i);
+  }//end run
+
+}//end class

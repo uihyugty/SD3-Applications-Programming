@@ -8,7 +8,7 @@ public class TestExecutorsEX2 {
 
     public static void main(String[] args) {
         
-       ExecutorService exe = Executors.newCachedThreadPool();
+       ExecutorService exe = Executors.newFixedThreadPool(1);
 
         exe.submit(() -> {
             for (int i = 1; i <= 100; i++) {
@@ -25,7 +25,7 @@ public class TestExecutorsEX2 {
         try {
             System.out.println("Attempting to shutdown");
             exe.shutdown();
-            exe.awaitTermination(5, TimeUnit.SECONDS);
+            exe.awaitTermination(5, TimeUnit.DAYS);
         } catch (InterruptedException e) {
             System.err.println("Tasks Interrupted" + e);
         } finally {

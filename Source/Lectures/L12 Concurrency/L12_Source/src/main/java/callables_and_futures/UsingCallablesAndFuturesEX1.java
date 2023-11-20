@@ -13,14 +13,14 @@ public class UsingCallablesAndFuturesEX1 {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         
-        Callable<Integer> task = () -> {
-            //return random int in the range 1 - 100
-            //TimeUnit.SECONDS.sleep(5);
-            return ThreadLocalRandom.current().nextInt(1,100+1);
-        };
+//        Callable<Integer> task = () -> {
+//            //return random int in the range 1 - 100
+//            //TimeUnit.SECONDS.sleep(5);
+//            return ThreadLocalRandom.current().nextInt(1,100+1);
+//        };
 
         ExecutorService exe = Executors.newCachedThreadPool();
-        Future<Integer> future = exe.submit(task);
+        Future<Integer> future = exe.submit(new RandomTask());
         Integer result = future.get();  
         System.out.println("result: " + result);
 

@@ -22,7 +22,7 @@ public class UsingCallablesAndFuturesEX4 {
                 callable("Thursday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
                 callable("Friday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
                 callable("Saturday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 51)));
+                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 5+1)));
 
         String future = executor.invokeAny(callables);
 
@@ -33,6 +33,7 @@ public class UsingCallablesAndFuturesEX4 {
     }
 
     static Callable<String> callable(String result, long sleepSeconds) {
+        System.out.println(result + "->" +  sleepSeconds);
         return () -> {
             TimeUnit.SECONDS.sleep(sleepSeconds);
             return result;
