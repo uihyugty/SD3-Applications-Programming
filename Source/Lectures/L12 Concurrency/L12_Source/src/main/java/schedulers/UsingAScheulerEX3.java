@@ -23,7 +23,23 @@ public class UsingAScheulerEX3 {
        int initialDelay = 0;
        int delay = 1;
        executor.scheduleWithFixedDelay(task, initialDelay, delay, TimeUnit.SECONDS);
-        
+
+       /*
+       For example, if you schedule a task with an initial delay of 5 seconds and a delay of 10 seconds, the task will first run after 5 seconds,
+       and then it will run again 10 seconds after it has completed its execution, regardless of how long the execution took.
+        */
+
+        /*
+        Suppose a task takes 3 seconds to execute:
+        If scheduled at a fixed rate of 10 seconds, the task will attempt to run every 10 seconds, regardless of the 3-second execution time.
+        If scheduled with a fixed delay of 10 seconds, the task will run, then wait 10 seconds after it has finished before running again.
+        So, the actual interval between starts of each execution will be 13 seconds (3 seconds of execution plus 10 seconds of delay).
+         */
+
+        /*
+        scheduleAtFixedRate is about maintaining a consistent frequency, while scheduleWithFixedDelay is about ensuring a fixed rest period between executions.
+        The choice between the two should be based on the specific requirements of the task you are scheduling.
+         */
     }
  
 }

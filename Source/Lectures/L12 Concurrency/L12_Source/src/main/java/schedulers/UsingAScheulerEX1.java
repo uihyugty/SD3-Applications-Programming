@@ -11,7 +11,11 @@ public class UsingAScheulerEX1 {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-      
+        //A ScheduledThreadPool supports future and/or periodic execution of tasks.
+        //Used to schedule tasks to run after a given delay or to execute repeatedly
+        //with a fixed interval of time in between each execution.
+        //The argument 1 specifies the core number of threads in the pool.
+        // In this case, it means the scheduled thread pool will have exactly one thread.
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
         System.out.println(new Date());

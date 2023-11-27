@@ -27,6 +27,8 @@ public class UsingCallablesAndFuturesEX2 {
             System.out.println(future.get());
         }
 
+
+
         exe.shutdownNow();
 
     }
